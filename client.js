@@ -4,6 +4,7 @@ const chalk = require('chalk')
 const repl = require('repl')
 const prompt = require('prompt')
 
+// replace the null username with your name.
 let username = ''
 
 socket.on('Fuckery', data => {
