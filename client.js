@@ -8,7 +8,7 @@ const prompt = require('prompt')
 let username = ''
 
 socket.on('Fuckery', data => {
-    console.log(chalk.green( '\n' + data))
+    console.log(chalk.green('[+] A new user has connected.'))
 })
 
 socket.on('disconnect', (data) => {
@@ -17,7 +17,7 @@ socket.on('disconnect', (data) => {
 
 socket.on('incomingMessage', (data) => {
     const { cmd, username } = data
-    console.log(chalk.yellow('message: ') + chalk.grey(username + '\t') + chalk.white(cmd.split('\n')[0]))
+    console.log(chalk.yellow('\n' + username + '\t') + chalk.white(cmd.split('\n')[0]))
 })
 
 repl.start({
@@ -26,28 +26,4 @@ repl.start({
         socket.emit('newMessage', { cmd, username })
     }
 })
-
-
-
-
-
-
-//     const input = () => {
-
-//         try{
-//             prompt.start()
-//             prompt.get('message', async (err, result) => {
-//             await socket.emit('newMessage', result.message)
-//             // input()
-//             })
-            
-//         } catch(e){
-//             process.exit(1)
-//             // console.log(e)
-//         }
-    
-    
-// }
-
-
 
